@@ -45,6 +45,7 @@ NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'violetyk/neocomplete-php.vim'
 NeoBundle 'gundo', {'type' : 'nosync', 'base' : '~/.vim/bundle_manual'}
 NeoBundle 'scrooloose/nerdtree' " ファイルをtree表示してくれる
+NeoBundle 'itchyny/lightline.vim' "ステータスバーのカラー、デザイン変更
 
 
 "-----------------------------
@@ -93,7 +94,7 @@ set noundofile
 set noswapfile
 syntax enable
 set background=dark
-colorscheme solarized
+"colorscheme solarized
 
 "-----------------------------
 "" search
@@ -109,6 +110,9 @@ set wrapscan "検索時に最後まで行ったら最初に戻る
 set nobackup "vimのファイル保存時にバックアップファイル（*.*~というファイル名）を作成しない
 set clipboard=unnamed,autoselect "vimのヤンク、選択したテキストをクリップボードにコピーする
 
+" ファイル・タイプを判断する設定をonにする
+filetype plugin on
+filetype indent on
 
 "-----------------------------
 "" Dictionary
@@ -237,11 +241,17 @@ call smartinput#define_rule({
             \  'input'  :'<CR><CR><up>',
             \  })
 
+"-----------------------------
+""  lightline settings
+"-----------------------------
+let g:lightline = {
+            \ 'colorscheme': 'solarized',
+            \ 'component': {
+            \   'readonly': '%{&readonly?"\ue0a2":""}',
+            \ }
+            \ }
 
 
-" ファイル・タイプを判断する設定をonにする
-filetype plugin on
-filetype indent on
 
 
 "-----------------------------

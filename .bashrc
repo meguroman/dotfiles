@@ -5,6 +5,7 @@ alias la='ls -laG'
 alias vim='Vim'
 alias mysql='/Applications/MAMP/Library/bin/mysql'
 alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
+alias zsh='/usr/local/bin/zsh'
 
 #setting for autojump
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
