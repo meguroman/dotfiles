@@ -23,3 +23,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 #Add nodebrew path
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+#display datetime on history command
+export HISTTIMEFORMAT='%F %T '
