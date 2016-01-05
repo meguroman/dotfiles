@@ -121,6 +121,9 @@ set clipboard=unnamed,autoselect "vimのヤンク、選択したテキストを�
 filetype plugin on
 filetype indent on
 
+" crontab -eをvimで編集可能なようにする
+autocmd BufRead /tmp/crontab.* :set nobackup nowritebackup
+
 "-----------------------------
 "" Dictionary
 "-----------------------------
@@ -292,9 +295,7 @@ let g:lightline = {
         \   'syntastic': 'SyntasticStatuslineFlag',
         \   'charcode': 'MyCharCode',
         \   'gitgutter': 'MyGitGutter',
-        \ },
-        \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-        \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
+        \ }
         \ }
 
 function! MyModified()
@@ -318,7 +319,7 @@ function! MyFugitive()
   try
     if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
       let _ = fugitive#head()
-      return strlen(_) ? "\ue0a0 "._ : ''
+      return strlen(_) ? "\ue0a0"._ : ''
     endif
   catch
   endtry
@@ -509,6 +510,15 @@ let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
 
+
+
+"-----------------------------
+"" fugitive settings
+"-----------------------------
+hi! DiffAdd      ctermbg=018
+hi! DiffChange   ctermbg=088
+hi! DiffDelete   ctermbg=028
+hi! DiffText     ctermbg=228 ctermfg=237
 
 
 
