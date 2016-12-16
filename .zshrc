@@ -49,7 +49,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew git bundler rails rbenv ruby tmux)
+plugins=(aws brew git bundler rails rake rbenv ruby tmux)
 
 # User configuration
 
@@ -66,11 +66,17 @@ if [[ "$OSTYPE" =~ "darwin" ]] && [ -d /Applications/MacVim.app/Contents/MacOS ]
       export PATH=/Applications/MacVim.app/Contents/MacOS:$PATH
 fi
 
+#For neovim
+export XDG_CONFIG_HOME=~/.config
+
 # Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
 #Add nodebrew path
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+# Add android sdk pass
+export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
 
 
 source $ZSH/oh-my-zsh.sh
@@ -105,15 +111,37 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias vim='Vim'
+alias vim='nvim'
 alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
 alias zsh='/usr/local/bin/zsh'
+
+# CSVファイルの文字コードをsjisに変換する
+function nkf2sjis() {
+  sjis_file=`echo $1 | sed -e "s/\.csv/_sjis\.csv/"`
+  command nkf -s $1 > $sjis_file
+}
 
 
 ################################
 # autojump setting
 ################################
 [[ -s `brew --prefix`/etc/autojump.zsh ]] && . `brew --prefix`/etc/autojump.zsh
+
+
+################################
+# rbenv setting
+################################
+[[ -d ~/.rbenv  ]] && \
+  export PATH=$HOME/.rbenv/bin:$PATH && \
+  eval "$(rbenv init - zsh)"
+
+
+################################
+# pyenv setting
+################################
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 
 

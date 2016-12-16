@@ -82,6 +82,10 @@ NeoBundle 'tpope/vim-rails'
 call neobundle#end()
 NeoBundleCheck
 
+"-----------------------------
+"" My vim plugin
+"-----------------------------
+runtime! toggle_pp.vim
 
 "-----------------------------
 "" apperance
@@ -101,7 +105,7 @@ set noundofile
 set noswapfile
 syntax enable
 set background=dark
-"colorscheme solarized
+colorscheme solarized
 
 "-----------------------------
 "" search
@@ -270,7 +274,7 @@ let g:gitgutter_sign_removed = '✘'
 
 " lightline.vim
 let g:lightline = {
-        \ 'colorscheme': 'solarized',
+        \ 'colorscheme': 'default',
         \ 'mode_map': {'c': 'NORMAL'},
         \ 'active': {
         \   'left': [
