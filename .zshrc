@@ -144,4 +144,9 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 
+################################
+# nodeenv setting
+################################
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
 
