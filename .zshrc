@@ -125,7 +125,7 @@ function nkf2sjis() {
 ################################
 # autojump setting
 ################################
-[[ -s `brew --prefix`/etc/autojump.zsh ]] && . `brew --prefix`/etc/autojump.zsh
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 
 ################################
