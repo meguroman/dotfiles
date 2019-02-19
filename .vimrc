@@ -55,8 +55,8 @@ NeoBundle 'airblade/vim-gitgutter'
 " Ruby用plugin
 "-----------------------------
 " コード補完
-NeoBundle 'marcus/rsense' 
-NeoBundle 'supermomonga/neocomplete-rsense.vim' 
+" NeoBundle 'marcus/rsense' 
+" NeoBundle 'supermomonga/neocomplete-rsense.vim' 
 
 " 静的解析
 NeoBundle 'scrooloose/syntastic'
@@ -496,8 +496,8 @@ set encoding=utf-8
 set autoindent
 
 " -----Rsense
-let g:rsenseHome = '/usr/local/lib/rsense-0.3'
-let g:rsenseUseOmniFunc = 1
+" let g:rsenseHome = '/usr/local/opt/rbenv/shims/'
+" let g:rsenseUseOmniFunc = 1
 
 " -----neocomplete.vim
 let g:acp_enableAtStartup = 0

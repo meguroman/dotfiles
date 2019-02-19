@@ -40,6 +40,9 @@ call dein#add('airblade/vim-gitgutter') "vimの行数表示部分に、Gitの最
 "-----------------------------
 call dein#add('tyru/caw.vim.git') "コメントアウトプラグイン
 call dein#add('Yggdroot/indentLine') "インデントラインの表示
+call dein#add('elzr/vim-json') "Yggdroot/indentLineのjsonのダブルクォート非表示取り消し用
+let g:vim_json_syntax_conceal = 0 "Yggdroot/indentLineのjsonのダブルクォート非表示取り消し用
+call dein#add('aklt/plantuml-syntax') "PlantUML記述用拡張
 
 
 "-----------------------------
@@ -84,7 +87,8 @@ set ambiwidth=double    "全角記号で文字幅がズレるのを修正
 set ignorecase "大文字/小文字の区別なく検索する
 set smartcase "検索文字列に大文字が含まれている場合は区別して検索する
 set wrapscan "検索時に最後まで行ったら最初に戻る
-
+set inccommand=split "置換結果をリアルタイムプレビューできる
+nnoremap / /\v
 
 "-----------------------------
 "  behavior
@@ -113,7 +117,7 @@ set autoindent          "新しい行を開始したとき、新しい行のイ�
 let g:deoplete#enable_at_startup = 1
 " Use deoplete.vim
 let g:deoplete#omni#input_patterns = {}
-let g:deoplete#omni#input_patterns.ruby =
+"let g:deoplete#omni#input_patterns.ruby =
       \ ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::']
 
 " <TAB>: completion.
@@ -296,4 +300,7 @@ function! MyCharCode()
 endfunction
 
 
-
+"-----------------------------
+" aklt/plantuml-syntax settings
+"-----------------------------
+let g:plantuml_executable_script = "~/dotfiles/plantuml"

@@ -53,12 +53,17 @@ plugins=(aws brew git bundler rails rake rbenv ruby tmux)
 
 # User configuration
 
+################################
+# general setting
+################################
+tabs -2
+
 
 ################################
 # PATH setting
 ################################
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 #For MacVim
@@ -77,7 +82,16 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # Add android sdk pass
 export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
+export PATH=$HOME/Library/Android/sdk/build-tools/27.0.3:$PATH
 
+# Add node_module path
+export PATH=$PATH:node_modules/.bin
+
+# Add Google Cloud SDK path
+export PATH=$PATH:/Applications/google-cloud-sdk/bin
+
+# Add for openssl PATH
+export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,6 +128,19 @@ source $ZSH/oh-my-zsh.sh
 alias vim='nvim'
 alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
 alias zsh='/usr/local/bin/zsh'
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+
+# for docker
+alias dk='docker'
+alias dkr='docker run'
+alias dki='docker image'
+alias dkp='docker ps'
+alias dkc='docker container'
+alias dka='docker attach'
+alias dksa='docker start'
+alias dkso='docker stop'
+alias dkpa='docker ps -a'
+alias dkis='docker images'
 
 # CSVファイルの文字コードをsjisに変換する
 function nkf2sjis() {
@@ -131,9 +158,7 @@ function nkf2sjis() {
 ################################
 # rbenv setting
 ################################
-[[ -d ~/.rbenv  ]] && \
-  export PATH=$HOME/.rbenv/bin:$PATH && \
-  eval "$(rbenv init - zsh)"
+eval "$(rbenv init -)"
 
 
 ################################
@@ -142,6 +167,7 @@ function nkf2sjis() {
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 
 ################################
@@ -149,4 +175,18 @@ eval "$(pyenv init -)"
 ################################
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
+
+
+################################
+# phpenv setting
+################################
+export PATH="$PATH:$HOME/.phpenv/bin"
+eval "$(phpenv init -)"
+
+
+
+################################
+# rooter server info sheet
+################################
+export ROOTER_SHEET_ID="1EsYAFfiTQ6HpPKxVoHb6GueNy7ZumOWZOT_5VCs5rtM"
 
