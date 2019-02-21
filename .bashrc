@@ -2,11 +2,22 @@
 alias ls='ls -G'
 alias ll='ls -lG'
 alias la='ls -laG'
-alias vim='Vim'
+alias vim='nvim'
 #alias mysql='/Applications/MAMP/Library/bin/mysql'
 alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
 alias zsh='/usr/local/bin/zsh'
 alias aws='/Users/meguroman/.pyenv/shims/aws'
+
+#For rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+#For pyenv
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 
 #setting for autojump
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
