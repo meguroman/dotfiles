@@ -30,7 +30,7 @@ if dein#load_state('/Users/meguroman/.config/nvim/dein')
   call dein#add('altercation/vim-colors-solarized') "Solarizedのカラーシンタックス
   call dein#add('kana/vim-smartinput') "閉じカッコを補完するプラグイン
   call dein#add('tpope/vim-surround') "文字の囲み記号の簡易入力
-  call dein#add('matchit.zip') " %を拡張してHTMLなどの閉じタグ移動を可能にする
+  call dein#add('vim-scripts/matchit.zip') " %を拡張してHTMLなどの閉じタグ移動を可能にする
   call dein#add('itchyny/lightline.vim') "ステータスバーのカラー、デザイン変更
   call dein#add('tpope/vim-surround') 
   call dein#add('tpope/vim-fugitive') "vim内でGit管理
