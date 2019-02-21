@@ -6,53 +6,62 @@ if &compatible
   set nocompatible
 endif
 
-set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=/Users/meguroman/.config/nvim/dein/repos/github.com/Shougo/dein.vim
 
-call dein#begin(expand('~/.config/nvim/dein'))
+if dein#load_state('/Users/meguroman/.config/nvim/dein')
+  call dein#begin('/Users/meguroman/.config/nvim/dein')
 
+  " Let dein manage dein
+  call dein#add('/Users/meguroman/.config/nvim/dein/repos/github.com/Shougo/dein.vim')
 
-"-----------------------------
-" Dark Vim Master's plugin
-"-----------------------------
-call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-call dein#add('Shougo/deoplete.nvim')
-call dein#add('Shougo/unite.vim') "vimの行数表示部分に、Gitの最終コミットからの差分情報を表示
+  "-----------------------------
+  " Dark Vim Master's plugin
+  "-----------------------------
+  call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('Shougo/unite.vim') "vimの行数表示部分に、Gitの最終コミットからの差分情報を表示
+  
+  
+  "-----------------------------
+  " general plugins
+  "-----------------------------
+  call dein#add('mattn/webapi-vim') "emmetなどで外部ファイル読込みに使用
+  call dein#add('mattn/emmet-vim') "emmet(zen-coding)
+  call dein#add('altercation/vim-colors-solarized') "Solarizedのカラーシンタックス
+  call dein#add('kana/vim-smartinput') "閉じカッコを補完するプラグイン
+  call dein#add('tpope/vim-surround') "文字の囲み記号の簡易入力
+  call dein#add('matchit.zip') " %を拡張してHTMLなどの閉じタグ移動を可能にする
+  call dein#add('itchyny/lightline.vim') "ステータスバーのカラー、デザイン変更
+  call dein#add('tpope/vim-surround') 
+  call dein#add('tpope/vim-fugitive') "vim内でGit管理
+  call dein#add('airblade/vim-gitgutter') "vimの行数表示部分に、Gitの最終コミットからの差分情報を表示
+  
+  
+  "-----------------------------
+  " for programming plugins
+  "-----------------------------
+  call dein#add('tyru/caw.vim.git') "コメントアウトプラグイン
+  call dein#add('Yggdroot/indentLine') "インデントラインの表示
+  call dein#add('elzr/vim-json') "Yggdroot/indentLineのjsonのダブルクォート非表示取り消し用
+  let g:vim_json_syntax_conceal = 0 "Yggdroot/indentLineのjsonのダブルクォート非表示取り消し用
+  call dein#add('aklt/plantuml-syntax') "PlantUML記述用拡張
+  
+  
+  "-----------------------------
+  " for Ruby plugins
+  "-----------------------------
+  call dein#add('fishbullet/deoplete-ruby') "
+  call dein#add('tpope/vim-endwise') "Rubyの閉じタグ補完
+  
+  
+  call dein#end()
+  call dein#save_state()
+endif
 
-
-"-----------------------------
-" general plugins
-"-----------------------------
-call dein#add('mattn/webapi-vim') "emmetなどで外部ファイル読込みに使用
-call dein#add('mattn/emmet-vim') "emmet(zen-coding)
-call dein#add('altercation/vim-colors-solarized') "Solarizedのカラーシンタックス
-call dein#add('kana/vim-smartinput') "閉じカッコを補完するプラグイン
-call dein#add('tpope/vim-surround') "文字の囲み記号の簡易入力
-call dein#add('matchit.zip') " %を拡張してHTMLなどの閉じタグ移動を可能にする
-call dein#add('itchyny/lightline.vim') "ステータスバーのカラー、デザイン変更
-call dein#add('tpope/vim-surround') 
-call dein#add('tpope/vim-fugitive') "vim内でGit管理
-call dein#add('airblade/vim-gitgutter') "vimの行数表示部分に、Gitの最終コミットからの差分情報を表示
-
-
-"-----------------------------
-" for programming plugins
-"-----------------------------
-call dein#add('tyru/caw.vim.git') "コメントアウトプラグイン
-call dein#add('Yggdroot/indentLine') "インデントラインの表示
-call dein#add('elzr/vim-json') "Yggdroot/indentLineのjsonのダブルクォート非表示取り消し用
-let g:vim_json_syntax_conceal = 0 "Yggdroot/indentLineのjsonのダブルクォート非表示取り消し用
-call dein#add('aklt/plantuml-syntax') "PlantUML記述用拡張
-
-
-"-----------------------------
-" for Ruby plugins
-"-----------------------------
-call dein#add('fishbullet/deoplete-ruby') "
-call dein#add('tpope/vim-endwise') "Rubyの閉じタグ補完
-
-
-call dein#end()
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
 
 
 
