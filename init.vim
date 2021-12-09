@@ -86,7 +86,7 @@ set hlsearch            "検索時に対象文字列をハイライトする
 set incsearch           "インクリメントサーチをON
 syntax enable           "文字のカラー表示（シンタックスハイライトをON）
 set background=dark     "背景を黒に
-colorscheme solarized   "カラースキームを利用する
+colorscheme iceberg   "カラースキームを利用する
 set ambiwidth=double    "全角記号で文字幅がズレるのを修正
 
 
